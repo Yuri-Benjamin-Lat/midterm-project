@@ -1,11 +1,20 @@
 import { Link } from "react-router-dom";
-import spaces from "../data/spaces.json"; // adjust path if needed
+import spaces from "../data/spaces.json";
+import { useAuth } from "../context/AuthContext";
 
 export default function Spaces({ searchTerm = "" }) {
+  const { isAuthenticated } = useAuth();
   const filteredSpaces = spaces.filter(space => 
     space.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     space.location.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const handleViewDetailsClick = (e) => {
+    if (!isAuthenticated) {
+      e.preventDefault();
+      alert("Please log in to view details");
+    }
+  };
 
   return (
     <div className="mb-6 mx-4 sm:mx-8 md:mx-16 lg:mx-32 xl:mx-50 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
@@ -43,11 +52,13 @@ export default function Spaces({ searchTerm = "" }) {
               <p className="w-full md:w-2/3 text-[10px] sm:text-xs md:text-sm text-gray-500 pb-5">{space.time_slots.join(", ")}</p>
             </div>
 
-            {/* Example link to details page */}
             <Link
               to={`/spaces/${space.id}`}
-              className="mx-auto mt-auto text-center inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-sm sm:text-base md:text-lg login-btn text-xl" style={{ fontFamily: 'KGSimplytheBest, sans-serif' }}>
-                View Details
+              onClick={handleViewDetailsClick}
+              className={`mx-auto mt-auto text-center inline-block px-4 py-2 rounded-lg text-sm sm:text-base md:text-lg login-btn text-xl ${isAuthenticated ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-blue-600 text-white hover:bg-blue-700 cursor-pointer'}`}
+              style={{ fontFamily: 'KGSimplytheBest, sans-serif' }}
+            >
+              View Details
             </Link>
           </div>
         </div>
@@ -55,22 +66,3 @@ export default function Spaces({ searchTerm = "" }) {
     </div>
   );
 }
-/* 
-Space Desc:
-  <p className="mt-2 text-sm text-gray-700 line-clamp-3 text-justify">
-    {space.description}
-  </p>
-
-Amenities Section:
-  <div className="mt-3">
-    <h3 className="text-sm font-semibold" style={{ fontFamily: 'KGSimplytheBest, sans-serif' }}>
-      Amenities:
-    </h3>
-    <ul className="list-disc list-inside text-sm text-gray-600">
-      {space.amenities.slice(0, 3).map((amenity, i) => (
-        <li key={i}>{amenity}</li>
-      ))}
-    </ul>
-  </div>
-
-*/
