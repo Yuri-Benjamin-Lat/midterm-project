@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+/*
+CSS for fonts
+
+*/
+
+@font-face {
+  font-family: 'KGSimplytheBest';
+  src: url('../fonts/KGSimplytheBest.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFDistantGalaxy';
+  src: url('../fonts/SFDistantGalaxy.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}

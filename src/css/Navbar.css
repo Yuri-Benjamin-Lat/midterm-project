@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+/*
+CSS fonts for Navbar
+
+1. Navbar container
+2. Navbar button
+3. Navbar login button
+
+*/
+
+
+/* 1 */
+.glass-navbar {
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.50);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 10;
+}
+
+.glass-navbar:hover {
+    transform: translateY(-0.5px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.071);
+}
+
+/* 2 */
+.navbar-btn {
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+.navbar-btn:hover {
+    color: #000000;
+    transform: scale(1.1);
+}
+
+.navbar-btn::before {
+    transition: left 0.6s ease;
+}
+
+/* 3 */
+.login-btn {
+    background: linear-gradient(135deg, rgba(212, 13, 13, 0.3), rgba(236, 199, 37, 0.3));
+    backdrop-filter: blur(15px);
+    color: #000000;
+    padding: 8px 20px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.login-btn:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+    background: linear-gradient(135deg, rgba(231, 19, 19, 0.4), rgba(250, 215, 57, 0.4));
+}
+
+.login-btn:hover::before {
+    left: 100%;
+}
+
+/* Responsive Design */
+/* Tablets and small desktops */
+@media (max-width: 1024px) {
+    .glass-navbar {
+        border-radius: 14px;
+        border-width: 1.8px;
+    }
+    
+    .login-btn {
+        padding: 7px 18px;
+        border-radius: 10px;
+    }
+}
+
+/* Tablets portrait and small screens */
+@media (max-width: 768px) {
+    .glass-navbar {
+        border-radius: 12px;
+        border-width: 1.5px;
+        backdrop-filter: blur(8px);
+    }
+    
+    .navbar-btn:hover {
+        transform: scale(1.05);
+    }
+    
+    .login-btn {
+        padding: 6px 16px;
+        border-radius: 8px;
+        backdrop-filter: blur(12px);
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    .glass-navbar {
+        border-radius: 10px;
+        border-width: 1px;
+        backdrop-filter: blur(6px);
+    }
+    
+    .glass-navbar:hover {
+        transform: translateY(-0.3px);
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.071);
+    }
+    
+    .navbar-btn:hover {
+        transform: scale(1.02);
+    }
+    
+    .login-btn {
+        padding: 5px 14px;
+        border-radius: 6px;
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* Very small mobile phones */
+@media (max-width: 320px) {
+    .glass-navbar {
+        border-radius: 8px;
+        backdrop-filter: blur(5px);
+    }
+    
+    .login-btn {
+        padding: 4px 12px;
+        border-radius: 5px;
+    }
+}

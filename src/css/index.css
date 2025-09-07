@@ -1,0 +1,393 @@
+@import "tailwindcss";
+
+/* 
+Global CSS
+
+1. Global Background
+
+
+*/
+
+/*
+Other css materials
+
+    overflow-x: hidden;
+*/
+
+/* 1 */
+.animated-mesh-bg {
+    position: fixed;    
+    top: 0; 
+    left: 0;
+    width: 100vw; /* Use viewport width instead of 100% */
+    height: 100vh; /* Use viewport height instead of 100% */
+    background: rgb(238, 238, 238);
+    z-index: -1;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.animated-mesh-bg::before,
+.animated-mesh-bg::after,
+.animated-mesh-bg .orb-1,
+.animated-mesh-bg .orb-2,
+.animated-mesh-bg .orb-3,
+.animated-mesh-bg .orb-4,
+.animated-mesh-bg .orb-5,
+.animated-mesh-bg .orb-6 {
+    content: '';
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.7;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.animated-mesh-bg::before {
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(255, 107, 107, 0.8) 0%, rgba(255, 107, 107, 0.2) 50%, transparent 100%);
+    top: 15%;
+    left: -10%;
+    animation: float-1 8s infinite;
+}
+
+.animated-mesh-bg::after {
+    width: 750px;
+    height: 750px;
+    background: radial-gradient(circle, rgba(78, 205, 196, 0.8) 0%, rgba(78, 205, 196, 0.2) 50%, transparent 100%);
+    top: 65%;
+    right: -5%;
+    animation: float-2 10s infinite;
+}
+
+.animated-mesh-bg .orb-1 {
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(255, 195, 113, 0.8) 0%, rgba(255, 195, 113, 0.2) 50%, transparent 100%);
+    top: -5%;
+    right: 20%;
+    animation: float-3 12s infinite;
+}
+
+.animated-mesh-bg .orb-2 {
+    width: 850px;
+    height: 850px;
+    background: radial-gradient(circle, rgba(196, 113, 255, 0.8) 0%, rgba(196, 113, 255, 0.2) 50%, transparent 100%);
+    bottom: -10%;
+    left: -15%;
+    animation: float-4 9s infinite;
+}
+
+.animated-mesh-bg .orb-3 {
+    width: 720px;
+    height: 720px;
+    background: radial-gradient(circle, rgba(113, 255, 193, 0.8) 0%, rgba(113, 255, 193, 0.2) 50%, transparent 100%);
+    top: 35%;
+    left: 25%;
+    animation: float-5 11s infinite;
+}
+
+.animated-mesh-bg .orb-4 {
+    width: 780px;
+    height: 780px;
+    background: radial-gradient(circle, rgba(255, 113, 206, 0.8) 0%, rgba(255, 113, 206, 0.2) 50%, transparent 100%);
+    bottom: 25%;
+    right: -20%;
+    animation: float-6 7s infinite;
+}
+
+.animated-mesh-bg .orb-5 {
+    width: 680px;
+    height: 680px;
+    background: radial-gradient(circle, rgba(113, 162, 255, 0.8) 0%, rgba(113, 162, 255, 0.2) 50%, transparent 100%);
+    top: 75%;
+    left: -20%;
+    animation: float-7 13s infinite;
+}
+
+.animated-mesh-bg .orb-6 {
+    width: 820px;
+    height: 820px;
+    background: radial-gradient(circle, rgba(255, 206, 84, 0.8) 0%, rgba(255, 206, 84, 0.2) 50%, transparent 100%);
+    top: -10%;
+    left: 70%;
+    animation: float-8 6s infinite;
+}
+
+@keyframes float-1 {
+    0% { transform: translateX(0px) translateY(0px) rotate(0deg); }
+    33% { transform: translateX(30px) translateY(-30px) rotate(120deg); }
+    66% { transform: translateX(-20px) translateY(20px) rotate(240deg); }
+    100% { transform: translateX(10px) translateY(-10px) rotate(360deg); }
+}
+
+@keyframes float-2 {
+    0% { transform: translateX(0px) translateY(0px) rotate(0deg); }
+    25% { transform: translateX(-40px) translateY(30px) rotate(90deg); }
+    50% { transform: translateX(20px) translateY(-25px) rotate(180deg); }
+    75% { transform: translateX(35px) translateY(15px) rotate(270deg); }
+    100% { transform: translateX(-10px) translateY(5px) rotate(360deg); }
+}
+
+@keyframes float-3 {
+    0% { transform: translateX(0px) translateY(0px) rotate(0deg); }
+    40% { transform: translateX(25px) translateY(40px) rotate(144deg); }
+    80% { transform: translateX(-35px) translateY(-15px) rotate(288deg); }
+    100% { transform: translateX(5px) translateY(20px) rotate(360deg); }
+}
+
+@keyframes float-4 {
+    0% { transform: translateX(0px) translateY(0px) rotate(0deg); }
+    30% { transform: translateX(-25px) translateY(-35px) rotate(108deg); }
+    70% { transform: translateX(40px) translateY(10px) rotate(252deg); }
+    100% { transform: translateX(-15px) translateY(25px) rotate(360deg); }
+}
+
+@keyframes float-5 {
+    0% { transform: translateX(0px) translateY(0px) rotate(0deg); }
+    20% { transform: translateX(30px) translateY(25px) rotate(72deg); }
+    50% { transform: translateX(-20px) translateY(-30px) rotate(180deg); }
+    80% { transform: translateX(15px) translateY(35px) rotate(288deg); }
+    100% { transform: translateX(-5px) translateY(-10px) rotate(360deg); }
+}
+
+@keyframes float-6 {
+    0% { transform: translateX(0px) translateY(0px) rotate(0deg); }
+    35% { transform: translateX(-30px) translateY(20px) rotate(126deg); }
+    65% { transform: translateX(25px) translateY(-40px) rotate(234deg); }
+    100% { transform: translateX(10px) translateY(15px) rotate(360deg); }
+}
+
+@keyframes float-7 {
+    0% { transform: translateX(0px) translateY(0px) rotate(0deg); }
+    45% { transform: translateX(35px) translateY(-20px) rotate(162deg); }
+    100% { transform: translateX(-25px) translateY(30px) rotate(360deg); }
+}
+
+@keyframes float-8 {
+    0% { transform: translateX(0px) translateY(0px) rotate(0deg); }
+    50% { transform: translateX(-40px) translateY(-25px) rotate(180deg); }
+    100% { transform: translateX(20px) translateY(35px) rotate(360deg); }
+}
+
+/* Responsive Design */
+/* Tablets and small desktops */
+@media (max-width: 1024px) {
+    .animated-mesh-bg::before,
+    .animated-mesh-bg::after,
+    .animated-mesh-bg .orb-1,
+    .animated-mesh-bg .orb-2,
+    .animated-mesh-bg .orb-3,
+    .animated-mesh-bg .orb-4,
+    .animated-mesh-bg .orb-5,
+    .animated-mesh-bg .orb-6 {
+        filter: blur(80px);
+    }
+    
+    .animated-mesh-bg::before {
+        width: 650px;
+        height: 650px;
+    }
+    
+    .animated-mesh-bg::after {
+        width: 600px;
+        height: 600px;
+    }
+    
+    .animated-mesh-bg .orb-1 {
+        width: 550px;
+        height: 550px;
+    }
+    
+    .animated-mesh-bg .orb-2 {
+        width: 680px;
+        height: 680px;
+    }
+    
+    .animated-mesh-bg .orb-3 {
+        width: 570px;
+        height: 570px;
+    }
+    
+    .animated-mesh-bg .orb-4 {
+        width: 620px;
+        height: 620px;
+    }
+    
+    .animated-mesh-bg .orb-5 {
+        width: 540px;
+        height: 540px;
+    }
+    
+    .animated-mesh-bg .orb-6 {
+        width: 650px;
+        height: 650px;
+    }
+}
+
+/* Tablets portrait and small screens */
+@media (max-width: 768px) {
+    .animated-mesh-bg::before,
+    .animated-mesh-bg::after,
+    .animated-mesh-bg .orb-1,
+    .animated-mesh-bg .orb-2,
+    .animated-mesh-bg .orb-3,
+    .animated-mesh-bg .orb-4,
+    .animated-mesh-bg .orb-5,
+    .animated-mesh-bg .orb-6 {
+        filter: blur(60px);
+    }
+    
+    .animated-mesh-bg::before {
+        width: 500px;
+        height: 500px;
+    }
+    
+    .animated-mesh-bg::after {
+        width: 450px;
+        height: 450px;
+    }
+    
+    .animated-mesh-bg .orb-1 {
+        width: 400px;
+        height: 400px;
+    }
+    
+    .animated-mesh-bg .orb-2 {
+        width: 520px;
+        height: 520px;
+    }
+    
+    .animated-mesh-bg .orb-3 {
+        width: 420px;
+        height: 420px;
+    }
+    
+    .animated-mesh-bg .orb-4 {
+        width: 470px;
+        height: 470px;
+    }
+    
+    .animated-mesh-bg .orb-5 {
+        width: 390px;
+        height: 390px;
+    }
+    
+    .animated-mesh-bg .orb-6 {
+        width: 500px;
+        height: 500px;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    .animated-mesh-bg::before,
+    .animated-mesh-bg::after,
+    .animated-mesh-bg .orb-1,
+    .animated-mesh-bg .orb-2,
+    .animated-mesh-bg .orb-3,
+    .animated-mesh-bg .orb-4,
+    .animated-mesh-bg .orb-5,
+    .animated-mesh-bg .orb-6 {
+        filter: blur(40px);
+    }
+    
+    .animated-mesh-bg::before {
+        width: 350px;
+        height: 350px;
+    }
+    
+    .animated-mesh-bg::after {
+        width: 320px;
+        height: 320px;
+    }
+    
+    .animated-mesh-bg .orb-1 {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .animated-mesh-bg .orb-2 {
+        width: 380px;
+        height: 380px;
+    }
+    
+    .animated-mesh-bg .orb-3 {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .animated-mesh-bg .orb-4 {
+        width: 340px;
+        height: 340px;
+    }
+    
+    .animated-mesh-bg .orb-5 {
+        width: 270px;
+        height: 270px;
+    }
+    
+    .animated-mesh-bg .orb-6 {
+        width: 360px;
+        height: 360px;
+    }
+}
+
+/* Very small mobile phones */
+@media (max-width: 320px) {
+    .animated-mesh-bg::before,
+    .animated-mesh-bg::after,
+    .animated-mesh-bg .orb-1,
+    .animated-mesh-bg .orb-2,
+    .animated-mesh-bg .orb-3,
+    .animated-mesh-bg .orb-4,
+    .animated-mesh-bg .orb-5,
+    .animated-mesh-bg .orb-6 {
+        filter: blur(30px);
+    }
+    
+    .animated-mesh-bg::before {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .animated-mesh-bg::after {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .animated-mesh-bg .orb-1 {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .animated-mesh-bg .orb-2 {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .animated-mesh-bg .orb-3 {
+        width: 210px;
+        height: 210px;
+    }
+    
+    .animated-mesh-bg .orb-4 {
+        width: 240px;
+        height: 240px;
+    }
+    
+    .animated-mesh-bg .orb-5 {
+        width: 190px;
+        height: 190px;
+    }
+    
+    .animated-mesh-bg .orb-6 {
+        width: 260px;
+        height: 260px;
+    }
+}
