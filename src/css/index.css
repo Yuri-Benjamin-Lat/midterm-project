@@ -77,7 +77,7 @@ Other css materials
 .animated-mesh-bg .orb-2 {
     width: 850px;
     height: 850px;
-    background: radial-gradient(circle, rgba(196, 113, 255, 0.8) 0%, rgba(196, 113, 255, 0.2) 50%, transparent 100%);
+    background: radial-gradient(circle, rgba(225, 197, 246, 0.8) 0%, rgba(196, 113, 255, 0.2) 50%, transparent 100%);
     bottom: -10%;
     left: -15%;
     animation: float-4 9s infinite;

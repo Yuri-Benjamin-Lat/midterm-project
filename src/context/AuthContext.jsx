@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext } from 'react';
+import { useLocalStorage } from '../hooks/useLocalStorage';
 
 const AuthContext = createContext();
 
@@ -7,17 +8,25 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useLocalStorage('isAuthenticated', false);
+  const [user, setUser] = useLocalStorage('user', null);
 
   const login = () => {
+    const userData = {
+      id: 1,
+      name: 'Yuri Lat',
+      email: 'yuri@example.com'
+    };
+    
     setIsAuthenticated(true);
+    setUser(userData);
   };
 
   const logout = () => {
-    // Show confirmation dialog before logging out
     if (window.confirm("Are you sure you want to log out?")) {
       setIsAuthenticated(false);
-      // If we're on a protected page, redirect to home after logout
+      setUser(null);
+      
       if (window.location.pathname !== '/') {
         window.location.href = '/';
       }
@@ -26,6 +35,7 @@ export function AuthProvider({ children }) {
 
   const value = {
     isAuthenticated,
+    user,
     login,
     logout
   };

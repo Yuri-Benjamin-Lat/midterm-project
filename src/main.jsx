@@ -13,32 +13,28 @@ import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import SpacesDetails from './components/SpacesDetails';
 import { AuthProvider } from './context/AuthContext';
+import { ReservationProvider } from './context/ReservationContext';
 import ProtectedRoute from './components/ProtectedRoute';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route 
-            path="/Dashboard" 
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            } 
-          />
-          <Route 
-            path="/spaces/:id" 
-            element={
-              <ProtectedRoute>
-                <SpacesDetails />
-              </ProtectedRoute>
-            } 
-          />
-        </Routes>
-      </BrowserRouter>
+      <ReservationProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route 
+              path="/Dashboard" 
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              } 
+            />
+            <Route path="/spaces/:id" element={<SpacesDetails />} />
+          </Routes>
+        </BrowserRouter>
+      </ReservationProvider>
     </AuthProvider>
   </React.StrictMode>
 );

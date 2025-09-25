@@ -1,20 +1,11 @@
 import { Link } from "react-router-dom";
 import spaces from "../data/spaces.json";
-import { useAuth } from "../context/AuthContext";
 
 export default function Spaces({ searchTerm = "" }) {
-  const { isAuthenticated } = useAuth();
   const filteredSpaces = spaces.filter(space => 
     space.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     space.location.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-  const handleViewDetailsClick = (e) => {
-    if (!isAuthenticated) {
-      e.preventDefault();
-      alert("Please log in to view details");
-    }
-  };
 
   return (
     <div className="mb-6 mx-4 sm:mx-8 md:mx-16 lg:mx-32 xl:mx-50 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
@@ -54,8 +45,7 @@ export default function Spaces({ searchTerm = "" }) {
 
             <Link
               to={`/spaces/${space.id}`}
-              onClick={handleViewDetailsClick}
-              className={`mx-auto mt-auto text-center inline-block px-4 py-2 rounded-lg text-sm sm:text-base md:text-lg login-btn text-xl ${isAuthenticated ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-blue-600 text-white hover:bg-blue-700 cursor-pointer'}`}
+              className="mx-auto mt-auto text-center inline-block px-4 py-2 rounded-lg text-sm sm:text-base md:text-lg login-btn text-xl bg-blue-600 text-white hover:bg-blue-700 cursor-pointer"
               style={{ fontFamily: 'KGSimplytheBest, sans-serif' }}
             >
               View Details
