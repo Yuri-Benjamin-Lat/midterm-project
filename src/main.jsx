@@ -1,7 +1,7 @@
 import './css/index.css';
 import './css/fonts.css';
 import './css/Navbar.css';
-import './css/searchbar.css';
+import './css/Searchbar.css';
 import './css/Spaces.css';
 import './css/SpacesDetails.css';
 
